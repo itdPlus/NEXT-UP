@@ -1,0 +1,572 @@
+/* Глобальные стили сайта: начальная (не-компонентная) часть <style data-framer-css-ssr-minified>
+   с https://nextupmedia.ru/ (reset, дизайн-токены --token-*, P3-фолбэки)
+   и <style data-framer-breakpoint-css>. CSS компонентов рантайм Framer вставляет сам (withCSS). */
+html,
+body,
+#main {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: inherit;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure {
+  margin: 0;
+}
+body,
+input,
+textarea,
+select,
+button {
+  font-family: sans-serif;
+  font-size: 12px;
+}
+body {
+  --token-9d8b7023-4414-453b-8680-379c21563597: #d5fd00;
+  --token-fbf32b18-7cd5-4fd5-9641-669fe6a7fa21: #fcfcff;
+  --token-f550cede-ebd0-4e17-98a5-5eb7194a656a: #0523b7;
+  --token-dc3cb869-ba1d-4760-b99f-1c9b96104de2: #0523b7;
+  --token-ba22495c-f71a-4a0d-afac-7c64c83e89b1: #fff;
+  --token-6d66fcb5-2c87-4ed7-a8bc-4d19b27d3765: #26f;
+  --token-a6d05ad3-70e4-43b3-a3d6-514972e4198b: #2188ff;
+  --token-b4036422-d606-49e7-8389-3755d996d08f: #9c9c9c;
+  --token-8de24e13-4e5a-40ad-bb6c-15feb77c103f: #eaeaea;
+  --framer-will-change-override: none;
+}
+@supports (background: -webkit-named-image(i)) and (not (grid-template-rows: subgrid)) {
+  body {
+    --framer-will-change-override: transform;
+  }
+}
+@supports (background: -webkit-named-image(i)) and (not (position-area: top right)) {
+  body {
+    --framer-will-change-filter-override: filter;
+  }
+}
+[data-framer-component-type="Text"] div div span,
+[data-framer-component-type="Text"] a div span,
+[data-framer-component-type="Text"] span span span,
+[data-framer-component-type="Text"] p span span,
+[data-framer-component-type="Text"] h1 span span,
+[data-framer-component-type="Text"] h2 span span,
+[data-framer-component-type="Text"] h3 span span,
+[data-framer-component-type="Text"] h4 span span,
+[data-framer-component-type="Text"] h5 span span,
+[data-framer-component-type="Text"] h6 span span,
+[data-framer-component-type="Text"] a {
+  font-family: var(--font-family);
+  font-style: var(--font-style);
+  font-weight: min(calc(var(--framer-font-weight-increase, 0) + var(--font-weight, 400)), 900);
+  color: var(--text-color);
+  letter-spacing: var(--letter-spacing);
+  font-size: var(--font-size);
+  text-transform: var(--text-transform);
+  --text-decoration: var(--framer-text-decoration-style, solid) var(--framer-text-decoration, none)
+    var(--framer-text-decoration-color, currentcolor) var(--framer-text-decoration-thickness, auto);
+  --text-decoration-skip-ink: var(--framer-text-decoration-skip-ink);
+  --text-underline-offset: var(--framer-text-decoration-offset);
+  line-height: var(--line-height);
+  --font-family: var(--framer-font-family);
+  --font-style: var(--framer-font-style);
+  --font-weight: var(--framer-font-weight);
+  --text-color: var(--framer-text-color);
+  --letter-spacing: var(--framer-letter-spacing);
+  --font-size: var(--framer-font-size);
+  --text-transform: var(--framer-text-transform);
+  --line-height: var(--framer-line-height);
+}
+@supports not (color: color(display-p3 1 1 1)) {
+  p.framer-text,
+  div.framer-text,
+  h1.framer-text,
+  h2.framer-text,
+  h3.framer-text,
+  h4.framer-text,
+  h5.framer-text,
+  h6.framer-text,
+  li.framer-text,
+  ol.framer-text,
+  ul.framer-text,
+  span.framer-text:not([data-text-fill]) {
+    color: var(
+      --framer-blockquote-text-color-rgb,
+      var(--framer-blockquote-text-color, var(--framer-text-color-rgb, var(--framer-text-color, #000)))
+    );
+    -webkit-text-stroke-color: var(--framer-text-stroke-color-rgb, var(--framer-text-stroke-color, initial));
+  }
+  mark.framer-text {
+    background-color: var(
+      --framer-blockquote-text-background-color-rgb,
+      var(
+        --framer-blockquote-text-background-color,
+        var(--framer-text-background-color-rgb, var(--framer-text-background-color, initial))
+      )
+    );
+  }
+}
+@supports not (color: color(display-p3 1 1 1)) {
+  code.framer-text,
+  code.framer-text span.framer-text:not([data-text-fill]) {
+    color: var(
+      --framer-blockquote-text-color-rgb,
+      var(
+        --framer-blockquote-text-color,
+        var(
+          --framer-code-text-color-rgb,
+          var(--framer-code-text-color, var(--framer-text-color-rgb, var(--framer-text-color, #000)))
+        )
+      )
+    );
+  }
+}
+@supports not (color: color(display-p3 1 1 1)) {
+  a.framer-text,
+  span.framer-text[data-nested-link] {
+    color: var(
+      --framer-blockquote-text-color-rgb,
+      var(
+        --framer-blockquote-text-color,
+        var(
+          --framer-link-text-color-rgb,
+          var(--framer-link-text-color, var(--framer-text-color-rgb, var(--framer-text-color, #000)))
+        )
+      )
+    );
+    background-color: var(
+      --framer-link-text-background-color-rgb,
+      var(--framer-link-text-background-color, initial)
+    );
+    -webkit-text-decoration-color: var(
+      --framer-link-text-decoration-color-rgb,
+      var(
+        --framer-link-text-decoration-color,
+        var(--framer-text-decoration-color-rgb, var(--framer-text-decoration-color, currentcolor))
+      )
+    );
+    text-decoration-color: var(
+      --framer-link-text-decoration-color-rgb,
+      var(
+        --framer-link-text-decoration-color,
+        var(--framer-text-decoration-color-rgb, var(--framer-text-decoration-color, currentcolor))
+      )
+    );
+  }
+}
+@supports not (color: color(display-p3 1 1 1)) {
+  code.framer-text a.framer-text,
+  code.framer-text a.framer-text span.framer-text:not([data-text-fill]),
+  code.framer-text span.framer-text[data-nested-link],
+  code.framer-text span.framer-text[data-nested-link] span.framer-text:not([data-text-fill]) {
+    color: var(
+      --framer-blockquote-text-color-rgb,
+      var(
+        --framer-blockquote-text-color,
+        var(
+          --framer-link-text-color-rgb,
+          var(
+            --framer-link-text-color,
+            var(
+              --framer-code-text-color-rgb,
+              var(--framer-code-text-color, var(--framer-text-color-rgb, var(--framer-text-color, #000)))
+            )
+          )
+        )
+      )
+    );
+  }
+}
+@supports not (color: color(display-p3 1 1 1)) {
+  a.framer-text:hover,
+  span.framer-text[data-nested-link]:hover {
+    color: var(
+      --framer-link-hover-text-color-rgb,
+      var(
+        --framer-link-hover-text-color,
+        var(
+          --framer-blockquote-text-color-rgb,
+          var(
+            --framer-blockquote-text-color,
+            var(
+              --framer-link-text-color-rgb,
+              var(--framer-link-text-color, var(--framer-text-color-rgb, var(--framer-text-color, #000)))
+            )
+          )
+        )
+      )
+    );
+    background-color: var(
+      --framer-link-hover-text-background-color-rgb,
+      var(
+        --framer-link-hover-text-background-color,
+        var(
+          --framer-link-text-background-color-rgb,
+          var(
+            --framer-link-text-background-color,
+            var(--framer-text-background-color-rgb, var(--framer-text-background-color, initial))
+          )
+        )
+      )
+    );
+    -webkit-text-decoration-color: var(
+      --framer-link-hover-text-decoration-color-rgb,
+      var(
+        --framer-link-hover-text-decoration-color,
+        var(
+          --framer-link-text-decoration-color-rgb,
+          var(
+            --framer-link-text-decoration-color,
+            var(--framer-text-decoration-color-rgb, var(--framer-text-decoration-color, currentcolor))
+          )
+        )
+      )
+    );
+    text-decoration-color: var(
+      --framer-link-hover-text-decoration-color-rgb,
+      var(
+        --framer-link-hover-text-decoration-color,
+        var(
+          --framer-link-text-decoration-color-rgb,
+          var(
+            --framer-link-text-decoration-color,
+            var(--framer-text-decoration-color-rgb, var(--framer-text-decoration-color, currentcolor))
+          )
+        )
+      )
+    );
+  }
+}
+@supports not (color: color(display-p3 1 1 1)) {
+  code.framer-text a.framer-text:hover,
+  code.framer-text span.framer-text[data-nested-link]:hover {
+    color: var(
+      --framer-link-hover-text-color-rgb,
+      var(
+        --framer-link-hover-text-color,
+        var(
+          --framer-blockquote-text-color-rgb,
+          var(
+            --framer-blockquote-text-color,
+            var(
+              --framer-link-text-color-rgb,
+              var(
+                --framer-link-text-color,
+                var(
+                  --framer-code-text-color-rgb,
+                  var(--framer-code-text-color, var(--framer-text-color-rgb, var(--framer-text-color, #000)))
+                )
+              )
+            )
+          )
+        )
+      )
+    );
+  }
+}
+@supports not (color: color(display-p3 1 1 1)) {
+  a.framer-text[data-framer-page-link-current],
+  span.framer-text[data-framer-page-link-current] {
+    color: var(
+      --framer-link-current-text-color-rgb,
+      var(
+        --framer-link-current-text-color,
+        var(
+          --framer-link-text-color-rgb,
+          var(--framer-link-text-color, var(--framer-text-color-rgb, var(--framer-text-color, #000)))
+        )
+      )
+    );
+    background-color: var(
+      --framer-link-current-text-background-color-rgb,
+      var(
+        --framer-link-current-text-background-color,
+        var(
+          --framer-link-text-background-color-rgb,
+          var(
+            --framer-link-text-background-color,
+            var(--framer-text-background-color-rgb, var(--framer-text-background-color, initial))
+          )
+        )
+      )
+    );
+    -webkit-text-decoration-color: var(
+      --framer-link-current-text-decoration-color-rgb,
+      var(
+        --framer-link-current-text-decoration-color,
+        var(
+          --framer-link-text-decoration-color-rgb,
+          var(
+            --framer-link-text-decoration-color,
+            var(--framer-text-decoration-color-rgb, var(--framer-text-decoration-color, currentcolor))
+          )
+        )
+      )
+    );
+    text-decoration-color: var(
+      --framer-link-current-text-decoration-color-rgb,
+      var(
+        --framer-link-current-text-decoration-color,
+        var(
+          --framer-link-text-decoration-color-rgb,
+          var(
+            --framer-link-text-decoration-color,
+            var(--framer-text-decoration-color-rgb, var(--framer-text-decoration-color, currentcolor))
+          )
+        )
+      )
+    );
+  }
+}
+@supports not (color: color(display-p3 1 1 1)) {
+  code.framer-text a.framer-text[data-framer-page-link-current],
+  code.framer-text a.framer-text[data-framer-page-link-current] span.framer-text:not([data-text-fill]),
+  code.framer-text span.framer-text[data-framer-page-link-current],
+  code.framer-text span.framer-text[data-framer-page-link-current] span.framer-text:not([data-text-fill]) {
+    color: var(
+      --framer-link-current-text-color-rgb,
+      var(
+        --framer-link-current-text-color,
+        var(
+          --framer-link-text-color-rgb,
+          var(
+            --framer-link-text-color,
+            var(
+              --framer-code-text-color-rgb,
+              var(--framer-code-text-color, var(--framer-text-color-rgb, var(--framer-text-color, #000)))
+            )
+          )
+        )
+      )
+    );
+    background-color: var(
+      --framer-link-current-text-background-color-rgb,
+      var(
+        --framer-link-current-text-background-color,
+        var(
+          --framer-link-text-background-color-rgb,
+          var(
+            --framer-link-text-background-color,
+            var(--framer-text-background-color-rgb, var(--framer-text-background-color, initial))
+          )
+        )
+      )
+    );
+  }
+}
+@supports not (color: color(display-p3 1 1 1)) {
+  a.framer-text[data-framer-page-link-current]:hover,
+  span.framer-text[data-framer-page-link-current]:hover {
+    color: var(
+      --framer-link-hover-text-color-rgb,
+      var(
+        --framer-link-hover-text-color,
+        var(
+          --framer-link-current-text-color-rgb,
+          var(
+            --framer-link-current-text-color,
+            var(
+              --framer-link-text-color-rgb,
+              var(
+                --framer-link-text-color,
+                var(
+                  --framer-code-text-color-rgb,
+                  var(--framer-code-text-color, var(--framer-text-color-rgb, var(--framer-text-color, #000)))
+                )
+              )
+            )
+          )
+        )
+      )
+    );
+    background-color: var(
+      --framer-link-hover-text-background-color-rgb,
+      var(
+        --framer-link-hover-text-background-color,
+        var(
+          --framer-link-current-text-background-color-rgb,
+          var(
+            --framer-link-current-text-background-color,
+            var(--framer-link-text-background-color-rgb, var(--framer-link-text-background-color, initial))
+          )
+        )
+      )
+    );
+    -webkit-text-decoration-color: var(
+      --framer-link-hover-text-decoration-color-rgb,
+      var(
+        --framer-link-hover-text-decoration-color,
+        var(
+          --framer-link-current-text-decoration-color-rgb,
+          var(
+            --framer-link-current-text-decoration-color,
+            var(
+              --framer-link-text-decoration-color-rgb,
+              var(
+                --framer-link-text-decoration-color,
+                var(--framer-text-decoration-color-rgb, var(--framer-text-decoration-color, currentcolor))
+              )
+            )
+          )
+        )
+      )
+    );
+    text-decoration-color: var(
+      --framer-link-hover-text-decoration-color-rgb,
+      var(
+        --framer-link-hover-text-decoration-color,
+        var(
+          --framer-link-current-text-decoration-color-rgb,
+          var(
+            --framer-link-current-text-decoration-color,
+            var(
+              --framer-link-text-decoration-color-rgb,
+              var(
+                --framer-link-text-decoration-color,
+                var(--framer-text-decoration-color-rgb, var(--framer-text-decoration-color, currentcolor))
+              )
+            )
+          )
+        )
+      )
+    );
+  }
+}
+@supports not (color: color(display-p3 1 1 1)) {
+  code.framer-text a.framer-text[data-framer-page-link-current]:hover,
+  code.framer-text a.framer-text[data-framer-page-link-current]:hover span.framer-text:not([data-text-fill]),
+  code.framer-text span.framer-text[data-framer-page-link-current]:hover,
+  code.framer-text
+    span.framer-text[data-framer-page-link-current]:hover
+    span.framer-text:not([data-text-fill]) {
+    color: var(
+      --framer-link-hover-text-color-rgb,
+      var(
+        --framer-link-hover-text-color,
+        var(
+          --framer-link-current-text-color-rgb,
+          var(
+            --framer-link-current-text-color,
+            var(
+              --framer-link-text-color-rgb,
+              var(
+                --framer-link-text-color,
+                var(
+                  --framer-code-text-color-rgb,
+                  var(--framer-code-text-color, var(--framer-text-color-rgb, var(--framer-text-color, #000)))
+                )
+              )
+            )
+          )
+        )
+      )
+    );
+    background-color: var(
+      --framer-link-hover-text-background-color-rgb,
+      var(
+        --framer-link-hover-text-background-color,
+        var(
+          --framer-link-current-text-background-color-rgb,
+          var(
+            --framer-link-current-text-background-color,
+            var(--framer-link-text-background-color-rgb, var(--framer-link-text-background-color, initial))
+          )
+        )
+      )
+    );
+  }
+}
+@supports not (overflow: clip) {
+  :root {
+    --overflow-clip-fallback: hidden;
+  }
+}
+@supports (background: -webkit-named-image(i)) and (not (contain-intrinsic-size: inherit)) {
+  div.framer-text,
+  p.framer-text,
+  h1.framer-text,
+  h2.framer-text,
+  h3.framer-text,
+  h4.framer-text,
+  h5.framer-text,
+  h6.framer-text,
+  ol.framer-text,
+  ul.framer-text,
+  li.framer-text,
+  blockquote.framer-text,
+  .framer-text.framer-image {
+    display: var(--text-truncation-display-inline-for-safari-16, revert);
+  }
+  div.framer-text:after,
+  p.framer-text:after,
+  h1.framer-text:after,
+  h2.framer-text:after,
+  h3.framer-text:after,
+  h4.framer-text:after,
+  h5.framer-text:after,
+  h6.framer-text:after,
+  ol.framer-text:after,
+  ul.framer-text:after,
+  li.framer-text:after,
+  blockquote.framer-text:after,
+  .framer-text.framer-image:after {
+    content: var(--text-truncation-line-break-for-safari-16);
+    white-space: pre;
+  }
+  .framer-text.framer-text-module,
+  .framer-text.framer-table-wrapper {
+    display: var(--text-truncation-display-none-for-safari-16, revert);
+  }
+  p.framer-text[data-text-fill] {
+    display: var(--text-truncation-display-inline-for-safari-16, inline-block);
+  }
+}
+@supports (corner-shape: superellipse(2)) {
+  :root {
+    --one-if-corner-shape-supported: 1;
+  }
+}
+.framer-cursor-none,
+.framer-cursor-none * {
+  cursor: none !important;
+}
+.framer-pointer-events-none,
+.framer-pointer-events-none * {
+  pointer-events: none !important;
+}
+@supports (aspect-ratio: 1) {
+  body {
+    --framer-aspect-ratio-supported: auto;
+  }
+}
+@media (min-width: 1440px) {
+  .hidden-1hn570 {
+    display: none !important;
+  }
+}
+@media (min-width: 810px) and (max-width: 1439.98px) {
+  .hidden-19ydsma {
+    display: none !important;
+  }
+}
+@media (min-width: 390px) and (max-width: 809.98px) {
+  .hidden-1wnlquk {
+    display: none !important;
+  }
+}
+@media (max-width: 389.98px) {
+  .hidden-1mth3vp {
+    display: none !important;
+  }
+}
