@@ -1,0 +1,27 @@
+{
+  "name": "nextup-site",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Local, readable rebuild of https://nextupmedia.ru/ (Framer site 3qXzGTaeWNB8JnV3UjBJnm) from its public source maps",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "format": "prettier --write src"
+  },
+  "dependencies": {
+    "@motionone/dom": "10.13.1",
+    "@motionone/easing": "10.14.0",
+    "@studio-freight/lenis": "1.0.16",
+    "popmotion": "11.0.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "reading-time": "1.5.0",
+    "three": "0.136.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.9",
+    "vite": "^6.3.0"
+  }
+}
